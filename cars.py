@@ -4,7 +4,7 @@ import tensorflow as tf
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)))
 data = tf.keras.utils.image_dataset_from_directory(
-    r'C:\Users\ahmid\Documents\data\car vs noncar',
+    r'C:\Users\FileFolder',
     labels='inferred',
     label_mode='binary',
     image_size=(64, 64),
@@ -23,4 +23,5 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 model.fit(data, epochs=10, validation_data=(data), verbose=2)
 
 test_loss, test_acc = model.evaluate(data, verbose=2)
+
 print('\nTest accuracy:', test_acc)
